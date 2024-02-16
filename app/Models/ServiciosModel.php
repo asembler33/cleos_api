@@ -10,7 +10,7 @@ class ServiciosModel extends Model{
 
     protected $table = 'servicios';
 
-    protected $fillable = ['id', 'id_especialidad', 'servicio', 'descripcion', 'preparacion_previa', 'duracion', 'precio'];
-
+    protected $fillable = ['id_especialidad', 'servicio', 'descripcion', 'preparacion_previa', 'id_duracion', 'precio'];
+                          
 
 }

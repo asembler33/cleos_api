@@ -15,8 +15,10 @@ class SucursalesController extends Controller{
      */
     public function index(){
         
+        
         $sucursales = SucursalesModel::join("comunas", "sucursales.comuna_id", "=", "comunas.id")
-        ->select("sucursales.*", "comunas.comuna")
+        ->join("region", "sucursales.id_region", "=", "region.id")
+        ->select("sucursales.*", "comunas.comuna", "region.region")
         ->get();
         
         return $sucursales;
@@ -26,12 +28,13 @@ class SucursalesController extends Controller{
 
     public function listaSucursales(){
         
-        $servicios = SucursalesModel::join("comunas", "sucursales.comuna_id", "=", "comunas.comuna_id")
-        ->select("sucursales.*", "comunas.comuna_nombre")
+        $sucursales = SucursalesModel::join("comunas", "sucursales.comuna_id", "=", "comunas.comuna_id")
+        ->join("region", "sucursales.id_region", "=", "region.id")
+        ->select("sucursales.*", "comunas.comuna_nombre", "region.region AS nombre_region")
         ->get();
 
 
-        return response()->json( $servicios);
+        return response()->json( $sucursales);
 
     }
 

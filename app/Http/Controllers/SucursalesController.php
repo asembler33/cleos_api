@@ -55,7 +55,7 @@ class SucursalesController extends Controller{
         $sucursales->correo = $request->json()->get('correo');
         $sucursales->save();
 
-        return SucursalesModel::all();
+        return $this->index();
     }
 
     /**
@@ -89,7 +89,7 @@ class SucursalesController extends Controller{
         $sucursales->correo = $request->json()->get('correo');
         $sucursales->save();
 
-        return SucursalesModel::all();
+        return $this->index();
     }
 
     /**

@@ -29,7 +29,7 @@ class ClientesController extends Controller{
             "correo" => $request->json()->get('correo')
         ]);
 
-        return ClientesModel::all();
+        return $this->index();
 
     }
 
@@ -54,7 +54,7 @@ class ClientesController extends Controller{
         $clientes->correo = $request->json()->get('correo');
         $clientes->save();
 
-        return ClientesModel::all();
+        return $this->index();
         
     }
    

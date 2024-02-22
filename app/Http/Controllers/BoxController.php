@@ -57,9 +57,9 @@ class BoxController extends Controller{
 
     }
 
-    public function destroy($id){
+    public function destroy($id, $idSucursal){
         BoxModel::find($id)->delete();
-        BoxSucursalesModel::where('id_box', $id)->delete();
+        BoxSucursalesModel::where('id_box', $id)->where('id_sucursal',$idSucursal)->delete();
     }
 
     

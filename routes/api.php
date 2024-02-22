@@ -71,7 +71,7 @@ Route::group(['middleware' => 'cors'], function () {
         Route::post('/box', 'store');
         Route::get('/box/{id}', 'show');
         Route::put('/box/{id}', 'update');
-        Route::delete('/box/{id}', 'destroy');
+        Route::delete('/box/{id}/{id_sucursal}', 'destroy');
     });
 });
 

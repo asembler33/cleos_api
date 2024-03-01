@@ -29,7 +29,7 @@ class TrabajadoresController extends Controller{
 
         ]);
 
-        return TrabajadoresModel::all();
+        return $this->index();
         
     }
 

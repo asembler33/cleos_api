@@ -57,6 +57,7 @@ Route::group(['middleware' => 'cors'], function () {
     Route::controller(ServiciosController::class)->group(function (){
         Route::get('/servicios/lista-servicios', 'index');
         Route::get('/servicios/dataListaServicios', 'listaServicios');
+        Route::get('/servicios/listaServiciosEspecialidad/{id}', 'getServicioPorEspecialidad');
         Route::post('/servicios', 'store');
         Route::get('/servicios/{id}', 'show');
         Route::put('/servicios/{id}', 'update');

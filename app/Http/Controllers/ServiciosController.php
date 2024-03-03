@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EspecialidadesModel;
 use App\Models\ServiciosModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiciosController extends Controller{
     
@@ -75,15 +76,12 @@ class ServiciosController extends Controller{
         return $servicios;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ServiciosModel  $serviciosModel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ServiciosModel $serviciosModel){
-        //
+    public function getServicioPorEspecialidad($id){
+
+        return DB::table('servicios')->where('id_especialidad', $id)->get();
+
     }
+
 
     /**
      * Update the specified resource in storage.

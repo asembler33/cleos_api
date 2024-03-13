@@ -44,6 +44,7 @@ Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' =>  'cors'], function () {
     Route::controller(UsersController::class)->group(function(){
         Route::get('/users/list-users', 'index');
+        Route::get('/users/list-users-servicios', 'getUsersServicios');
         Route::post('/users', 'store');
         Route::get('/users/{id}', 'show');
         Route::put('/users/{id}', 'update');

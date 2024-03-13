@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class UsersController extends Controller
-{
-    protected function store(Request $request){
+class UsersController extends Controller{
+
+    public function store(Request $request){
         
         if (request()->has('avatar')) {
             
@@ -44,7 +44,7 @@ class UsersController extends Controller
         return $arregloClientes;
     }
 
-    protected function update(Request $request, $id){
+    public function update(Request $request, $id){
 
         $resultadoUser = DB::table('users')->where('id','=', $id)->get();
 
@@ -101,4 +101,11 @@ class UsersController extends Controller
     public function destroy($id){
         User::find($id)->delete();
     }
+
+    // public function getUsersServicios($idEspecialidad){
+
+    //     DB::table('servicios')->join('especialidades', 'servicios.id_especialidad', '=', 'especialidades.id')
+    //                           ->join('users', 'users.id', '=', 'rel_users_servicios.id_user')
+    // }
+
 }
